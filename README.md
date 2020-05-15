@@ -16,8 +16,6 @@ It's crude and unoptimised and inefficient, but it serves the goal of visual rep
 
 It's mostly an amCharts showcase - amCharts are amazing, I love them dearly. Check them out if you're not familiar, there's seemingly nothing you can't do with them: https://www.amcharts.com/demos/ 
 
-As a bonus point, it is built into GitLab pages via CI pipeline, and served from GitLab, so no extra maintenance for Kubernetes app or other resource.
-
 ## Examples
 
 
