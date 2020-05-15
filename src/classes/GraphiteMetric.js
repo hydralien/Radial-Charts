@@ -68,7 +68,7 @@ export default class GraphiteMetric extends Metric {
 			metricPath = `timeShift(${metricPath}%2C%22${this.shift}%22)`;
 		}
 
-		let template = `https://mongraphite.booking.com/render?`
+		let template = `https://graphite.url/render?`
 			+ `from=000000_${refYear}${refMonth}${refDay}&until=000000_${refNextYear}${refNextMonth}${refNextDay}`
 			+ `&target=${metricPath}&format=csv`
 			+ `&rnd=${randomParam}`;
