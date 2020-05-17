@@ -18,6 +18,7 @@ It's mostly an amCharts showcase - amCharts are amazing, I love them dearly. Che
 
 ## Examples
 
+Bike rentals in NYC, January 1st 2020 vs July 1st 2019 (from https://s3.amazonaws.com/tripdata/index.html):
 
 
 ## Shortcomings

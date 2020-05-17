@@ -66,7 +66,9 @@
 						if (dateKey.startsWith("__")) {
 							return;
 						}
-						let dateObject = {date: Date.parse(dateKey)};
+						let dateObject = {
+							date: new Date(dateKey)
+						};
 
 						dataList.push(Object.assign(dateObject, this.$data.mergedMetrics[dateKey]));
 					}
@@ -93,6 +95,7 @@
 				valueAxis.renderer.axisFills.template.fill = chart.colors.getIndex(2);
 				valueAxis.renderer.axisFills.template.fillOpacity = 0.05;
 				valueAxis.tooltip.disabled = true;
+				// valueAxis.logarithmic = true;
 
 				this.$data.mergedChartInfo.forEach(chartInfo => {
 					if (chartInfo.isEmpty()) {
@@ -130,6 +133,7 @@
 
 				let level = chartInfo.index;
 				let valueField = "value" + level;
+				let today = new Date();
 
 				newArray.forEach(
 					dataLine => {
@@ -139,12 +143,27 @@
 						// 2: data point
 						// but we'll assume there could be just date and data point, so last two columns
 						let lineDate = dataLine[dataLine.length - 2];
+						if (this.chartSource === ChartDataSource.URL) {
+							// Normalising date so all times would correspond to one day (today)
+							let adjustedDate = new Date(lineDate);
+
+							adjustedDate.setFullYear(today.getFullYear());
+							adjustedDate.setMonth(today.getMonth());
+							adjustedDate.setDate(today.getDate());
+							adjustedDate.setMinutes(parseInt(adjustedDate.getMinutes() / 5) * 5);
+							adjustedDate.setSeconds(0);
+
+							lineDate = adjustedDate.toISOString();
+						}
 						let lineDataPoint = dataLine[dataLine.length - 1];
 
 						if (!targetObject[lineDate]) {
 							targetObject[lineDate] = {};
 						}
-						targetObject[lineDate][valueField] = lineDataPoint;
+						targetObject[lineDate][valueField] =
+							targetObject[lineDate][valueField]
+								? targetObject[lineDate][valueField] + parseFloat(lineDataPoint)
+								: parseFloat(lineDataPoint);
 					}
 				);
 			},

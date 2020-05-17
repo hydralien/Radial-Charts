@@ -1,18 +1,21 @@
 <template>
 	<div id="app">
 		<Tabs @changed="chartSourceChange">
-			<Tab name="Graphite metrics" :id="chartSources.GRAPHITE">
-				<div id="graphite-alert" v-if="!graphiteUrlAvailable">
-					<p>GraphiteMetric.GRAPHITE_SITE_URL should be defined to use Graphite metrics</p>
-				</div>
-				<div v-for="(chart,id) in chartList" v-bind:key="id">
-					<!--<label>Metric URL: <input class="chart-url" v-model.lazy="chart.chartUrl"></label>-->
-					<label>Metric path: <input class="chart-url" v-model.lazy="chart.chart"></label>
-					<label>Time shift: <input v-model.lazy="chart.shift"></label>
-					<button @click="deleteChart(id)">delete</button>
-				</div>
-			</Tab>
+<!--			<Tab name="Graphite metrics" :id="chartSources.GRAPHITE">-->
+<!--				<div id="graphite-alert" v-if="!graphiteUrlAvailable">-->
+<!--					<p>GraphiteMetric.GRAPHITE_SITE_URL should be defined to use Graphite metrics</p>-->
+<!--				</div>-->
+<!--				<div v-for="(chart,id) in chartList" v-bind:key="id">-->
+<!--					&lt;!&ndash;<label>Metric URL: <input class="chart-url" v-model.lazy="chart.chartUrl"></label>&ndash;&gt;-->
+<!--					<label>Metric path: <input class="chart-url" v-model.lazy="chart.chart"></label>-->
+<!--					<label>Time shift: <input v-model.lazy="chart.shift"></label>-->
+<!--					<button @click="deleteChart(id)">delete</button>-->
+<!--				</div>-->
+<!--			</Tab>-->
 			<Tab name="Data URLs" :id="chartSources.URL">
+				<div id="urls-alert">
+					<p>Use {referenceDate} in the URL to replace it with the selected date (if required)</p>
+				</div>
 				<div v-for="(chart,id) in chartUrls" v-bind:key="id">
 					<label>Metric URL: <input class="chart-url" v-model.lazy="chart.chartUrl"></label>
 					<button @click="deleteUrl(id)">delete</button>

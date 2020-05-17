@@ -22,7 +22,8 @@ jobs:
     - uses: actions/setup-node@master
     - run: npm install
     - run: npm run build
-    - run: |
-        mkdir docs
-        cp -r dist/* docs/
+    - run: cp -r dist/* docs/
+#    - run: |
+#        mkdir docs
+#        cp -r dist/* docs/
 
