@@ -19,11 +19,12 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@master
+    - skip_cleanup: true
     - uses: actions/setup-node@master
     - run: npm install
     - run: npm run build
-    - run: cp -r dist/* docs/
-#    - run: |
-#        mkdir docs
-#        cp -r dist/* docs/
+#    - run: cp -r dist/* docs/
+    - run: |
+        ls dist
+        cp -r dist/* docs/
 
