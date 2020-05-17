@@ -21,13 +21,13 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
       - name: NPM
-          run: npm install
+        run: npm install
       - name: Build
-          run: npm run build
+        run: npm run build
       - name: Copy
-          run: |
-            ls dist
-            cp -r dist/* docs/
+        run: |
+          ls dist
+          cp -r dist/* docs/
       - name: Deploy
           uses: peaceiris/actions-gh-pages@v3.6.1
           with:
