@@ -18,18 +18,22 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@master
-      - name: NPM
-        run: npm install
-      - name: Build
-        run: npm run build
-      - name: Copy
-        run: |
-          ls dist
-          cp -r dist/* docs/
-      - name: Deploy
-          uses: peaceiris/actions-gh-pages@v3.6.1
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: ./docs
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@master
+
+    - name: NPM
+      run: npm install
+
+    - name: Build
+      run: npm run build
+
+    - name: Copy
+      run: |
+        ls dist
+        cp -r dist/* docs/
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3.6.1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs
