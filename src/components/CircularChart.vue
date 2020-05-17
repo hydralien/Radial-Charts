@@ -85,6 +85,8 @@
 				let dateAxis = chart.xAxes.push(new am4charts.DateAxis());
 				dateAxis.dataFields.category = "date";
 				dateAxis.tooltip.disabled = false;
+				dateAxis.groupData = true;
+				// dateAxis.groupCount = 1000;
 				dateAxis.periodChangeDateFormats.setKey("day", "yyyy");
 
 				var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
@@ -101,6 +103,7 @@
 
 					let series = chart.series.push(new am4charts.RadarSeries());
 					series.dataFields.valueY = valueField;
+					series.groupFields.valueY = "sum";
 					series.dataFields.dateX = "date";
 					series.name = "Chart " + valueField;
 					series.strokeWidth = 3;

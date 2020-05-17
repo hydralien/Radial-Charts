@@ -19,6 +19,7 @@ It's mostly an amCharts showcase - amCharts are amazing, I love them dearly. Che
 ## Examples
 
 
+
 ## Shortcomings
 
 - it's not a working tool or a developing project - it's a fun thing built for no reason 
