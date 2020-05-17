@@ -14,6 +14,10 @@ export default class GraphiteMetric extends Metric {
 		this._index = index;
 	}
 
+	static GRAPHITE_SITE() {
+		return ""; // e.g. "https://graphite.website.com";
+	}
+
 	get chart() {
 		return this._chart;
 	}
@@ -68,7 +72,7 @@ export default class GraphiteMetric extends Metric {
 			metricPath = `timeShift(${metricPath}%2C%22${this.shift}%22)`;
 		}
 
-		let template = `https://graphite.url/render?`
+		let template = `${GraphiteMetric.GRAPHITE_SITE()}/render?`
 			+ `from=000000_${refYear}${refMonth}${refDay}&until=000000_${refNextYear}${refNextMonth}${refNextDay}`
 			+ `&target=${metricPath}&format=csv`
 			+ `&rnd=${randomParam}`;
