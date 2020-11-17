@@ -23,7 +23,7 @@ to a branch and then deployed as Github pages using https://github.com/marketpla
 ## Examples
 Surprisingly, there's npt that many public datasets with high-granularity daily data available on the Internet, but here's at least one:   
 Bike rentals in NYC, January 1st 2020 vs July 1st 2019 (from https://s3.amazonaws.com/tripdata/index.html):
-- https://hydralien.github.io/Radial-Charts/?refdate=today&charturl=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2Fe%2F2PACX-1vTH8gdj2SZ2F1uVQXNmqFpQ-vNovCVfKjBRApvNOklW1fbQ3pYcmNHmFc9G1j6DR-BWcEvFVcDcu5zd%2Fpub%3Fgid%3D1925241191%26single%3Dtrue%26output%3Dcsv&charturl=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2Fe%2F2PACX-1vTH8gdj2SZ2F1uVQXNmqFpQ-vNovCVfKjBRApvNOklW1fbQ3pYcmNHmFc9G1j6DR-BWcEvFVcDcu5zd%2Fpub%3Fgid%3D2036688924%26single%3Dtrue%26output%3Dcsv
+- https://hydralien.github.io/Radial-Charts/?refdate=today&charturl=https%3A%2F%2Fraw.githubusercontent.com%2Fhydralien%2FRadial-Charts%2Fmaster%2Fdata%2Fcitybike-2020-01-01.csv&charturl=https%3A%2F%2Fraw.githubusercontent.com%2Fhydralien%2FRadial-Charts%2Fmaster%2Fdata%2Fcitybike-2020-07-01.csv
 
 ![Bike rentals](docs/bikerental.png)
 
